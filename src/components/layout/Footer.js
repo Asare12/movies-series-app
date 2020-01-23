@@ -14,7 +14,7 @@ export default function footer() {
       className="p-3 mt-4 text-light"
     >
       <Container>
-        <Row className="justify-content-md-center">
+        <Row className="text-center">
           <Col md="12">
             Developed By:
             <span className="text-warning"> David Asare</span>

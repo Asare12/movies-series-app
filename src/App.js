@@ -1,14 +1,20 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Navigation from "./components/navigation";
-import Footer from "./components/footer";
+import { Provider } from "react-redux";
+import Navigation from "./components/layout/navigation";
+import Footer from "./components/layout/footer";
+import Landing from "./components/home/Landing";
+import store from "./store";
 
 function App() {
   return (
     <React.Fragment>
-      <Navigation />
-      <Footer />
+      <Provider store={store}>
+        <Navigation />
+        <Landing />
+        <Footer />
+      </Provider>
     </React.Fragment>
   );
 }

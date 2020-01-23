@@ -1,1 +1,0 @@
-export const SEARCH_MOVIEW = "SEARCH_MOVIE";
