@@ -15,11 +15,11 @@ export default function footer() {
     >
       <Container>
         <Row className="justify-content-md-center">
-          <Col md="auto">
+          <Col md="12">
             Developed By:
             <span className="text-warning"> David Asare</span>
-            , Using <i className="fab fa-react" /> React JS &amp; Redux JS
-            integrated with external movies data API{" "}
+            , Using <i className="fab fa-react" id="react-logo" /> React JS
+            &amp; Redux JS integrated with external movies data API{" "}
             <a href="http://www.omdbapi.com/" target="blank">
               OMDB{" "}
             </a>
