@@ -2,8 +2,8 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Provider } from "react-redux";
-import Navigation from "./components/layout/navigation";
-import Footer from "./components/layout/footer";
+import Navigation from "./components/layout/Navigation";
+import Footer from "./components/layout/Footer";
 import Landing from "./components/home/Landing";
 import store from "./store";
 

@@ -3,12 +3,17 @@ import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { searchMovie } from "../../actions/searchAction";
+import { searchMovie, fetchMovies } from "../../actions/searchAction";
 import { connect } from "react-redux";
 
-export class SearchhForm extends Component {
+export class SearchForm extends Component {
   onChange = e => {
     this.props.searchMovie(e.target.value);
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.fetchMovies(this.props.text);
   };
   render() {
     return (
@@ -17,16 +22,17 @@ export class SearchhForm extends Component {
           <h1 className="display-4 mb-3">
             <i className="fa fa-search" /> Search for a Movie, TV series ...
           </h1>
-          <Form>
+          <form onSubmit={this.onSubmit}>
             <Form.Control
               type="text"
+              name="searchText"
               placeholder="Search for a Movie, TV series ...."
               onChange={this.onChange}
             />
-            <Button variant="primary" size="lg" className="mt-3">
+            <Button variant="primary" size="lg" type="submit" className="mt-3">
               Search
             </Button>
-          </Form>
+          </form>
         </Container>
       </Jumbotron>
     );
@@ -37,4 +43,6 @@ const mapStatesToProps = state => ({
   text: state.movies.text
 });
 
-export default connect(mapStatesToProps, { searchMovie })(SearchhForm);
+export default connect(mapStatesToProps, { searchMovie, fetchMovies })(
+  SearchForm
+);
