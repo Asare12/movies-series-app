@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import SearchForm from "./SearchForm";
 import MoviesContainer from "./MovieContainer";
 import Spinner from "../layout/Spinner";
+import { connect } from "react-redux";
 
 export class Landing extends Component {
   render() {
@@ -15,7 +16,7 @@ export class Landing extends Component {
     );
   }
 }
-// const mapStateToProps = state => ({
-//   loading: state.movies.loading
-// });
-export default Landing;
+const mapStateToProps = state => ({
+  loading: state.movies.loading
+});
+export default connect(mapStateToProps)(Landing);

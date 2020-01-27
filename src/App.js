@@ -6,8 +6,9 @@ import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
 import Landing from "./components/home/Landing";
 import store from "./store";
-import {Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 import Movie from "./components/home/Movie";
+
 function App() {
   return (
     <React.Fragment>

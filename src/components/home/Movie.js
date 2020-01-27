@@ -1,64 +1,76 @@
 import React, { Component } from "react";
+import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchMovie } from "../../actions/searchAction";
+import { fetchMovie, setLoading } from "../../actions/searchAction";
+import Spinner from "../layout/Spinner";
 
 export class Movie extends Component {
   componentDidMount() {
     this.props.fetchMovie(this.props.match.params.id);
+    this.props.setLoading();
   }
   render() {
-    return (
-      <React.Fragment>
-        <Row>
+    const { loading, movie } = this.props;
+    let movieInfo = (
+      <Container>
+        <Row className="mt-5">
           <Col md={4}>
             <Card>
-              <Card.Img src="movie-poster" className="thumbnail" alt="Poster" />
+              <Card.Img src={movie.Poster} className="thumbnail" alt="Poster" />
             </Card>
           </Col>
           <Col md={8}>
-            <h2 className="mb-4">Movie title</h2>
+            <h2 className="mb-4">{movie.Title}</h2>
             <ListGroup>
               <ListGroup.Item>
-                <strong>Genre:</strong>Movie Genre
+                <strong>Genre:</strong> {movie.Genre}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Released:</strong>Movie Released
+                <strong>Released:</strong> {movie.Released}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Rated:</strong>Movie Rated
+                <strong>Rated:</strong> {movie.Rated}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>IMDB Rating:</strong>Movie IMDB Rating
+                <strong>IMDB Rating:</strong> {movie.imdbRating}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Writer:</strong>Movie Writer
+                <strong>Writer:</strong> {movie.Writer}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Actors:</strong>Movie Actors
+                <strong>Actors:</strong> {movie.Actors}
               </ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>
         <Row>
-          <Card>
+          <Card bg="dark" text="white">
             <Col md={12}>
               <h3>About</h3>
-              About the Movie
+              {movie.Plot}
               <hr />
-              <Link className="btn btn-primary">View on IMDB</Link>
-              <Link className="btn btn-default text-light">
+              <a
+                href={"http:/www.imdb.com/title/" + movie.imdbID}
+                className="btn btn-primary"
+              >
+                View on IMDB
+              </a>
+              <Link to="/" className="btn btn-success text-light">
                 Go Back To Search
               </Link>
             </Col>
           </Card>
         </Row>
-      </React.Fragment>
+      </Container>
     );
+
+    let content = loading ? <Spinner /> : movieInfo;
+    return <div>{content}</div>;
   }
 }
 
@@ -67,4 +79,4 @@ const mapStateToProps = state => ({
   movie: state.movies.movie
 });
 
-export default connect(mapStateToProps, { fetchMovie })(Movie);
+export default connect(mapStateToProps, { fetchMovie, setLoading })(Movie);

@@ -3,7 +3,11 @@ import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { searchMovie, fetchMovies } from "../../actions/searchAction";
+import {
+  searchMovie,
+  fetchMovies,
+  setLoading
+} from "../../actions/searchAction";
 import { connect } from "react-redux";
 
 export class SearchForm extends Component {
@@ -14,6 +18,7 @@ export class SearchForm extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.props.fetchMovies(this.props.text);
+    this.props.setLoading();
   };
   render() {
     return (
@@ -43,6 +48,8 @@ const mapStatesToProps = state => ({
   text: state.movies.text
 });
 
-export default connect(mapStatesToProps, { searchMovie, fetchMovies })(
-  SearchForm
-);
+export default connect(mapStatesToProps, {
+  searchMovie,
+  fetchMovies,
+  setLoading
+})(SearchForm);

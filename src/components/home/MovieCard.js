@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-// import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 export class MovieCard extends Component {
@@ -21,10 +20,7 @@ export class MovieCard extends Component {
             <Card.Title>
               {movie.Title} - {movie.Year}
             </Card.Title>
-            {/* <Button variant="primary" type="submit" className="mt-3">
-              Movie Details <i className="fas fa-chevron-right" />
-            </Button> */}
-            <Link className="btn btn-primary" to={"/movie/" + movie.ImbdID}>
+            <Link className="btn btn-primary" to={"/movie/" + movie.imdbID}>
               Movie Details <i className="fas fa-chevron-right" />
             </Link>
           </Card.Body>
