@@ -56,11 +56,12 @@ export class Movie extends Component {
               <hr />
               <a
                 href={"http:/www.imdb.com/title/" + movie.imdbID}
-                className="btn btn-primary"
+                className="btn btn-warning"
               >
                 View on IMDB
               </a>
-              <Link to="/" className="btn btn-success text-light">
+              {"     "}
+              <Link to="/" className="btn btn-primary text-light">
                 Go Back To Search
               </Link>
             </Col>
