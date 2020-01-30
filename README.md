@@ -1,5 +1,5 @@
-# movies-series-app
-Our Gym is a simple application with a responsive design specially for gym and fitness users the application allows you to login and register using aws cognito. It is designed in a minimalist black and red style it offers awesome simple design, powerful display.
+# Movies Series App
+It is a Movies & Series app, calling an external API (OMDB) to fetch the movie or the TV series data and manipulate it inside our application.
 
 ### Prerequisites
 ```
