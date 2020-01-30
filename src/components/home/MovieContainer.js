@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MovieCard from "./MovieCard";
-import MovieNotFound from "./MovieNotFound";
+// import MovieNotFound from "./MovieNotFound";
 
 export class MovieContainer extends Component {
   render() {
@@ -13,9 +13,7 @@ export class MovieContainer extends Component {
         movies.Search.map((movie, index) => (
           <MovieCard key={index} movie={movie} />
         ))
-      ) : (
-        <MovieNotFound />
-      );
+      ) :null;
     return <div className="row">{content}</div>;
   }
 }
