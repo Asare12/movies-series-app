@@ -5,7 +5,7 @@ It is a Movies & Series app, calling an external API (OMDB) to fetch the movie o
 ```
 To run this project follow these steps:
 clone the repo using git clone
-navigate to folder MyReactApp
+navigate to folder movies-series-app
 run npm install to instal node modules
 run npm start to start the service on localhost:3000
 ```
